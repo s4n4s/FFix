@@ -70,7 +70,16 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         setContentView(R.layout.activity_main);
 
         //***
+        NotificationCompat.Builder notif = new NotificationCompat.Builder(this)
+                .setSmallIcon(R.drawable.ic_launcher_background)
+                .setDefaults(NotificationCompat.DEFAULT_ALL)
+                .setContentTitle("Bienvenue")
+                .setAutoCancel(true)
+                .setPriority(Notification.PRIORITY_HIGH)
+                .setContentText("Cette application est en cours de developpement");
 
+        Notification builder = notif.build();
+        NotificationManagerCompat.from(this).notify(1, builder);
 
         android.support.v7.app.ActionBar actionbar = getSupportActionBar();
         actionbar.setBackgroundDrawable(new ColorDrawable(Color.parseColor("#3B3B3B")));

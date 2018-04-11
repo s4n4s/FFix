@@ -10,13 +10,4 @@
         android:id="@+id/get_faq"
         android:title="Visit API website"
     />
-
-    <item
-        android:id="@+id/mi_change_color"
-        android:title="Change Color"
-        />
-    <item
-        android:id="@+id/mi_change_color2"
-        android:title="Change Color white"
-        />
 </menu>
