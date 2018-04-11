@@ -46,7 +46,7 @@ public class DetailsActivity extends AppCompatActivity {
         setContentView(R.layout.activity_details);
 
         android.support.v7.app.ActionBar actionbar = getSupportActionBar();
-        actionbar.setBackgroundDrawable(new ColorDrawable(Color.parseColor("#2BAF2B")));
+        actionbar.setBackgroundDrawable(new ColorDrawable(Color.parseColor("#3B3B3B")));
         getSupportActionBar().setDisplayOptions(ActionBar.DISPLAY_SHOW_CUSTOM);
         getSupportActionBar().setCustomView(R.layout.abs_layout);
         getSupportActionBar().setDisplayShowHomeEnabled(true);
@@ -78,9 +78,6 @@ public class DetailsActivity extends AppCompatActivity {
 
             @Override
             public void onReceive(Context context, Intent intent) {
-                Toast.makeText(context,"Service details recu", Toast.LENGTH_SHORT).show();
-
-
                 String contentFile = readFile("details.txt");
 
 

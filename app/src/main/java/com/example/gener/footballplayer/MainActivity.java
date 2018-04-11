@@ -1,13 +1,20 @@
 package com.example.gener.footballplayer;
 
 import android.app.ActionBar;
+import android.app.AlertDialog;
 import android.app.DatePickerDialog;
+import android.app.Notification;
+import android.app.NotificationManager;
 import android.content.BroadcastReceiver;
 import android.content.Context;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.IntentFilter;
 import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
+import android.net.Uri;
+import android.support.v4.app.NotificationCompat;
+import android.support.v4.app.NotificationManagerCompat;
 import android.support.v4.content.LocalBroadcastManager;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -51,9 +58,9 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     public List<Fixtures> lf;
     public String dateForApi;
     public TextView tv_see_more;
+    private ArrayList<String> list;
 
     public static final String MATCH_UPDATE = "com.octip.cours.inf4042_11.BIERS_UPDATE";
-
     Calendar datetime = Calendar.getInstance();
     DateFormat formatDateTime = DateFormat.getDateTimeInstance();
 
@@ -66,7 +73,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
 
         android.support.v7.app.ActionBar actionbar = getSupportActionBar();
-        actionbar.setBackgroundDrawable(new ColorDrawable(Color.parseColor("#2BAF2B")));
+        actionbar.setBackgroundDrawable(new ColorDrawable(Color.parseColor("#3B3B3B")));
         getSupportActionBar().setDisplayOptions(ActionBar.DISPLAY_SHOW_CUSTOM);
         getSupportActionBar().setCustomView(R.layout.abs_layout);
 
@@ -96,7 +103,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         class FixturesUpdate extends BroadcastReceiver {
             @Override
             public void onReceive(Context context, Intent intent) {
-                Toast.makeText(context,"Service finished", Toast.LENGTH_SHORT).show();
+                Toast.makeText(context,R.string.downloadText, Toast.LENGTH_SHORT).show();
 
 
                 String contentFile = readFile("fixtures.txt");
@@ -235,20 +242,17 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
      */
 
     @Override
-    public boolean onOptionsItemSelected(MenuItem item)
+    public boolean onOptionsItemSelected(final MenuItem item)
     {
         switch (item.getItemId())
         {
             case R.id.calendar_action_bar:
                 new DatePickerDialog(this, d, datetime.get(Calendar.YEAR), datetime.get(Calendar.MONTH), datetime.get(Calendar.DAY_OF_MONTH)).show();
-            case R.id.set_dark_theme:
-                LinearLayout bgElement = (LinearLayout) findViewById(R.id.container);
-                bgElement.setBackgroundColor(Color.parseColor("#030303"));
-            case R.id.set_light_theme:
-                LinearLayout bgElement1 = (LinearLayout) findViewById(R.id.container);
-                bgElement1.setBackgroundColor(Color.parseColor("#ffffff"));
+                break;
             case R.id.get_faq:
-                return true;
+                Intent browserIntent = new Intent(Intent.ACTION_VIEW, Uri.parse("https://football-api.com"));
+                startActivity(browserIntent);
+                break;
         }
         return super.onOptionsItemSelected(item);
     }

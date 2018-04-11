@@ -3,4 +3,10 @@
     <string name="setDate">Selectionner une date</string>
     <string name="search">Rechercher</string>
     <string name="mdetails">Détails du match</string>
+    <string name="country">Pays</string>
+    <string name="league">Ligue</string>
+    <string name="stage">Journée</string>
+    <string name="stadium">Stade</string>
+    <string name="noData">Données indisponibles</string>
+    <string name="downloadText">Téléchargement terminé</string>
 </resources>

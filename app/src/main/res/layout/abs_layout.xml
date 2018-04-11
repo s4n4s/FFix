@@ -8,7 +8,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
-        android:text="Football Fixtures"
+        android:text="FFix"
         android:textColor="#ffffff"
         android:id="@+id/mytext"
         android:textSize="18sp" />

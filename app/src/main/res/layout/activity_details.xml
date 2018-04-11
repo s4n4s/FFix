@@ -4,68 +4,93 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:orientation="vertical"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    >
 
 
     <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
         android:orientation="horizontal"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:layout_height="100dp"
+        android:background="@drawable/main_cv_img"
+        android:scaleType="centerCrop"
+        >
+
 
             <TextView
                 android:id="@+id/ad_tv_home"
                 android:layout_width="120dp"
                 android:layout_height="wrap_content"
                 android:gravity="center"
+                android:layout_gravity="center"
+                android:textColor="#ffffff"
+                android:textSize="20dp"
+                android:fontFamily="sans-serif"
+                android:textStyle="bold"
                 android:text="test"/>
 
             <TextView
                 android:layout_width="120dp"
                 android:layout_height="wrap_content"
                 android:gravity="center"
-                android:text="-"/>
+                android:layout_gravity="center"
+                android:textColor="#ffffff"
+                android:textSize="20dp"
+                android:fontFamily="sans-serif"
+                android:textStyle="bold"
+                android:text="VS"/>
 
             <TextView
                 android:id="@+id/ad_tv_away"
                 android:layout_width="120dp"
                 android:layout_height="wrap_content"
                 android:gravity="center"
+                android:layout_gravity="center"
+                android:textColor="#ffffff"
+                android:textSize="20dp"
+                android:fontFamily="sans-serif"
+                android:textStyle="bold"
                 android:text="test"/>
 
     </LinearLayout>
     <LinearLayout
         android:orientation="vertical"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:layout_marginTop="20dp"
+        android:layout_height="350dp">
 
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:textSize="20sp"
+            android:textSize="20dp"
+            android:textColor="#2BAF2B"
             android:gravity="center"
             android:text="@string/mdetails"/>
 
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:textSize="15sp"
+            android:textSize="20dp"
+            android:textColor="#2BAF2B"
             android:gravity="center"
-            android:text="Country"/>
+            android:text="@string/country"/>
 
         <TextView
             android:id="@+id/ad_tv_country"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:textSize="15sp"
+
             android:gravity="center"
-            android:text="countryData"/>
+            android:text="@string/noData"/>
 
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:textSize="15sp"
+            android:textSize="20dp"
             android:gravity="center"
-            android:text="league"/>
+            android:textColor="#2BAF2B"
+            android:text="@string/league"/>
 
         <TextView
             android:id="@+id/ad_tv_league"
@@ -73,30 +98,32 @@
             android:layout_height="wrap_content"
             android:textSize="15sp"
             android:gravity="center"
-            android:text="leagueData"/>
+            android:text="@string/noData"/>
 
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:textSize="15sp"
+            android:textColor="#2BAF2B"
+            android:textSize="20dp"
             android:gravity="center"
-            android:text="stage"/>
+            android:text="@string/stage"/>
 
         <TextView
             android:id="@+id/ad_tv_stage"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:textSize="15sp"
+            android:textSize="15dp"
             android:gravity="center"
-            android:text="stageData"/>
+            android:text="@string/noData"/>
 
 
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:textSize="15sp"
+            android:textSize="20dp"
+            android:textColor="#2BAF2B"
             android:gravity="center"
-            android:text="stade"/>
+            android:text="@string/stadium"/>
 
         <TextView
             android:id="@+id/ad_tv_stade"
@@ -104,12 +131,13 @@
             android:layout_height="wrap_content"
             android:textSize="15sp"
             android:gravity="center"
-            android:text="stadeData"/>
+            android:text="@string/noData"/>
 
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:textSize="15sp"
+            android:textSize="20dp"
+            android:textColor="#2BAF2B"
             android:gravity="center"
             android:text="Date"/>
 
@@ -119,9 +147,17 @@
             android:layout_height="wrap_content"
             android:textSize="15sp"
             android:gravity="center"
-            android:text="dateData"/>
+            android:text="@string/noData"/>
 
 
     </LinearLayout>
+
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:layout_alignParentBottom="true"
+        android:layout_weight="1"
+        android:scaleType="centerCrop"
+        android:src="@drawable/pitch" />
 
 </LinearLayout>
