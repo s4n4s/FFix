@@ -45,7 +45,7 @@ import java.util.Map;
 public class MainActivity extends AppCompatActivity implements View.OnClickListener {
 
     public TextView picked_date;
-    public Button search_btn;
+    ///public Button search_btn;
     public RecyclerView rv;
     public FixturesAdapter fa;
     public List<Fixtures> lf;
@@ -62,6 +62,9 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+        //***
+
+
         android.support.v7.app.ActionBar actionbar = getSupportActionBar();
         actionbar.setBackgroundDrawable(new ColorDrawable(Color.parseColor("#2BAF2B")));
         getSupportActionBar().setDisplayOptions(ActionBar.DISPLAY_SHOW_CUSTOM);
@@ -70,23 +73,23 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         /**
          * Boutton recherche
          */
-        search_btn = (Button) findViewById(R.id.search_btn);
+        /*search_btn = (Button) findViewById(R.id.search_btn);
         search_btn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                UpdateTextLabel();
-                Intent intent = new Intent(MainActivity.this, Getplayers.class);
-                intent.putExtra("dayDate", dateForApi);
-                startService(intent);
+
             }
-        });
+        });*/
 
 
 
         picked_date = (TextView) findViewById(R.id.picked_date);
-
-
         UpdateTextLabel();
+
+        Intent intent = new Intent(MainActivity.this, Getplayers.class);
+        intent.putExtra("dayDate", dateForApi);
+        startService(intent);
+
 
         lf = new ArrayList<>();
 
@@ -109,7 +112,15 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                     for(int i = 0;i < test;i++)
                     {
                         JSONObject jsonobj =  jsonarr.getJSONObject(i);
-                        lf.add(new Fixtures(jsonobj.getString("localteam_name"),jsonobj.getString("visitorteam_name"),jsonobj.getString("formatted_date")+"\n"+jsonobj.getString("time"), jsonobj.getString("comp_id"),jsonobj.getString("week"), jsonobj.getString("venue")));
+                        if(jsonobj.getString("time").equals(jsonobj.getString("status")) || jsonobj.getString("status").equals(""))
+                        {
+                            lf.add(new Fixtures(jsonobj.getString("localteam_name"),jsonobj.getString("visitorteam_name"),jsonobj.getString("formatted_date")+"\n"+jsonobj.getString("time")+" GMT +0", jsonobj.getString("comp_id"),jsonobj.getString("week"), jsonobj.getString("venue")));
+
+                        }
+                        else
+                        {
+                            lf.add(new Fixtures(jsonobj.getString("localteam_name"),jsonobj.getString("visitorteam_name"),jsonobj.getString("formatted_date")+"\n"+jsonobj.getString("status"), jsonobj.getString("comp_id"),jsonobj.getString("week"), jsonobj.getString("venue")));
+                        }
                     }
 
 
@@ -153,8 +164,10 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             datetime.set(Calendar.YEAR, year);
             datetime.set(Calendar.MONTH, month);
             datetime.set(Calendar.DAY_OF_MONTH, dayOfMonth);
-
             UpdateTextLabel();
+            Intent intent = new Intent(MainActivity.this, Getplayers.class);
+            intent.putExtra("dayDate", dateForApi);
+            startService(intent);
         }
     };
 

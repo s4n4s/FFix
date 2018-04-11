@@ -21,12 +21,6 @@
         android:textStyle="bold"
         />
 
-    <Button
-        android:id="@+id/search_btn"
-        android:layout_width="fill_parent"
-        android:layout_height="wrap_content"
-        android:text="@string/search" />
-
     <android.support.v7.widget.RecyclerView
         android:id="@+id/recycler_fixtures"
         android:layout_width="match_parent"
