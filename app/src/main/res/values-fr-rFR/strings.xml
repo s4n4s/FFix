@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="setDate">Selectionner une date</string>
+    <string name="search">Rechercher</string>
+    <string name="mdetails">Détails du match</string>
+</resources>

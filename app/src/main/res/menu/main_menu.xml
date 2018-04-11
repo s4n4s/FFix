@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+    <item
+        android:id="@+id/calendar_action_bar"
+        android:title="FR"
+        android:icon="@drawable/ic_calendar"
+        app:showAsAction="always"
+        />
+
+    <item
+        android:id="@+id/set_dark_theme"
+        android:title="Mode nuit"
+        android:icon="@android:drawable/alert_dark_frame"
+        />
+    <item
+        android:id="@+id/set_light_theme"
+        android:title="Mode Jour"
+        android:icon="@android:drawable/alert_dark_frame"
+        />
+
+    <item
+        android:id="@+id/get_faq"
+        android:title="Visit API website"
+    />
+
+</menu>
